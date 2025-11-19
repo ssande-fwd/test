@@ -1,14 +1,188 @@
 <xml xmlns="https://makecode.com/blocks/xml">
-  <block type="device_forever" id="Q%b-Y4Q3F09;6w^l%E1D" x="0" y="0">
+  <variables>
+    <variable type="" id="D`{9?{y~+J+R%pY~N-E=">mode</variable>
+  </variables>
+  <block type="device_on_button_a" id="7818|Yp;Lg0lR0!^1%wF" x="0" y="0">
     <statement name="HANDLER">
-      <block type="device_show_leds" id="Wn;R^6k?#|j,x[z+X9;t">
-        <field name="LEDS">`
+      <block type="variables_change" id="0|{yqHn8^|h^Wq|8i-o{">
+        <field name="VAR" id="D`{9?{y~+J+R%pY~N-E=">mode</field>
+        <field name="DELTA">1</field>
+        <next>
+          <block type="controls_if" id="2?T-iJ(bJ?*v6+p(gE/]">
+            <value name="IF0">
+              <block type="logic_compare" id="e?h4;^%5w_y!rY]N=^j!">
+                <field name="OP">GT</field>
+                <value name="A">
+                  <block type="variables_get" id="7-Q@W{;72nB#2wD@o-bC">
+                    <field name="VAR" id="D`{9?{y~+J+R%pY~N-E=">mode</field>
+                  </block>
+                </value>
+                <value name="B">
+                  <shadow type="math_number" id="J3!e?W[P6~|%y^~2sT@t">
+                    <field name="NUM">1</field>
+                  </shadow>
+                </value>
+              </block>
+            </value>
+            <statement name="DO0">
+              <block type="variables_set" id="w%YF,^%8y]q-3,y!*s/Y">
+                <field name="VAR" id="D`{9?{y~+J+R%pY~N-E=">mode</field>
+                <value name="VALUE">
+                  <shadow type="math_number" id="VnN(V?3{2^m*qA3w1?+;">
+                    <field name="NUM">0</field>
+                  </shadow>
+                </value>
+              </block>
+            </statement>
+          </block>
+        </next>
+      </block>
+    </statement>
+  </block>
+  <block type="device_forever" id="p,qP36t0@r0Y@2}P(8?t" x="0" y="250">
+    <statement name="HANDLER">
+      <block type="controls_if" id="z@pD/X~m7]507*J9p2w?">
+        <mutation else="1"></mutation>
+        <value name="IF0">
+          <block type="logic_compare" id="A|L7!d{c30m!t6*D2z{y">
+            <field name="OP">EQ</field>
+            <value name="A">
+              <block type="variables_get" id="^F@lK0h01zQ#t52{O}Gq">
+                <field name="VAR" id="D`{9?{y~+J+R%pY~N-E=">mode</field>
+              </block>
+            </value>
+            <value name="B">
+              <shadow type="math_number" id="k6gJ8n[}o@s@vF,90b(z">
+                <field name="NUM">0</field>
+              </shadow>
+            </value>
+          </block>
+        </value>
+        <statement name="DO0">
+          <block type="comment" id="1Y%?00~}y6b!q8=X?v7Q">
+            <field name="TEXT">Animal Mode (0)</field>
+            <next>
+              <block type="device_show_leds" id="`y8n9sU[#98L^u;^!/0K">
+                <field name="LEDS">`
+. . # . .
+. . # . .
+. . # . .
+. . # . .
+# # # # #
+`</field>
+                <next>
+                  <block type="device_pause" id="?5Qy#k1jS7-x.Y@/y*7:">
+                    <value name="pause">
+                      <shadow type="time_ms" id="4wFm[N5tY!~F5J-sA-m`">
+                        <field name="MILISEC">500</field>
+                      </shadow>
+                    </value>
+                    <next>
+                      <block type="device_show_leds" id="0`qT8`l8iX8oN-1r*2Q!">
+                        <field name="LEDS">`
+. . . . .
+. . # . .
+. # # # .
+# # # # #
+. # # # .
+`</field>
+                        <next>
+                          <block type="device_pause" id="?s=k3W5.b(2j|Oq;[mFz">
+                            <value name="pause">
+                              <shadow type="time_ms" id="p|xN{YI3%@2rT-?sLwW1">
+                                <field name="MILISEC">500</field>
+                              </shadow>
+                            </value>
+                          </block>
+                        </next>
+                      </block>
+                    </next>
+                  </block>
+                </next>
+              </block>
+            </next>
+          </block>
+        </statement>
+        <statement name="ELSE">
+          <block type="comment" id="Q%1`b{L`5jR{13|7jYy:">
+            <field name="TEXT">Human Mode (1)</field>
+            <next>
+              <block type="device_show_leds" id="?_T`~-z{mF|G,w9m{YF;">
+                <field name="LEDS">`
 . # . # .
+. # . # .
+. . . . .
+# . . . #
+. # # # .
+`</field>
+                <next>
+                  <block type="device_pause" id="`w}O]L|05e!7?t~S?F@r">
+                    <value name="pause">
+                      <shadow type="time_ms" id="FqE%3R+K+N(y|z3^Y_0:">
+                        <field name="MILISEC">500</field>
+                      </shadow>
+                    </value>
+                    <next>
+                      <block type="device_show_leds" id="6`9cQ=1W8FjE_s!y^u[O">
+                        <field name="LEDS">`
+. # . # .
+. # . # .
+. . . . .
+. # # # .
+# . . . #
+`</field>
+                        <next>
+                          <block type="device_pause" id="R}J(R0.lH98(yS*7#1=c">
+                            <value name="pause">
+                              <shadow type="time_ms" id="vA5gV@L~Xw~%02L2_P/O">
+                                <field name="MILISEC">500</field>
+                              </shadow>
+                            </value>
+                          </block>
+                        </next>
+                      </block>
+                    </next>
+                  </block>
+                </next>
+              </block>
+            </next>
+          </block>
+        </statement>
+      </block>
+    </statement>
+  </block>
+  <block type="device_on_start" id="L!/1}1WjKkE+3p9+I0nK" x="0" y="800">
+    <statement name="HANDLER">
+      <block type="variables_set" id="h_?F(O#%wYgHl+3.tQO}">
+        <field name="VAR" id="D`{9?{y~+J+R%pY~N-E=">mode</field>
+        <value name="VALUE">
+          <shadow type="math_number" id="r;J0z!l/pL{=6?{f-`y)">
+            <field name="NUM">0</field>
+          </shadow>
+        </value>
+        <next>
+          <block type="device_show_leds" id="lF*J8h`Qn/q7i_]3~m2i">
+            <field name="LEDS">`
+. # # # .
+# # # # #
 # # # # #
 # # # # #
 . # # # .
-. . # . .
 `</field>
+            <next>
+              <block type="device_pause" id="V+`*7!Yw!K8,w,W@l0~9">
+                <value name="pause">
+                  <shadow type="time_ms" id="Fh!7W`0Wc!l/p6~%z+~!">
+                    <field name="MILISEC">500</field>
+                  </shadow>
+                </value>
+                <next>
+                  <block type="basic_clear_screen" id="L2t`m1|91l9~^E|m;h`m"></block>
+                </next>
+              </block>
+            </next>
+          </block>
+        </next>
       </block>
     </statement>
   </block>
